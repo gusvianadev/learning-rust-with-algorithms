@@ -1,25 +1,38 @@
-fn partition(arr: &mut [i32], lo: i32, hi: i32) -> i32 {
-    let pivot = arr[hi as usize];
+fn partition(arr: &mut [i32], lo: usize, hi: usize) -> usize {
+    let pivot = arr[hi];
 
-    let mut idx = lo - 1;
+    let mut idx = lo.checked_sub(1).unwrap_or(0);
 
+    let mut inside = false;
     for i in lo..hi {
-        if arr[i as usize] <= pivot {
-            idx += 1;
-            let tmp = arr[i as usize];
-            arr[i as usize] = arr[idx as usize];
-            arr[idx as usize] = tmp;
+        dbg!(&idx);
+        if arr[i] <= pivot {
+            if lo == 0 {
+                if inside {
+                    idx += 1;
+                } else {
+                    inside = true;
+                }
+            } else {
+                idx += 1;
+            };
+
+            dbg!(&idx);
+            let tmp = arr[i];
+
+            arr[i] = arr[idx];
+            arr[idx] = tmp;
         }
     }
 
     idx += 1;
-    arr[hi as usize] = arr[idx as usize];
-    arr[idx as usize] = pivot;
+    arr[hi] = arr[idx];
+    arr[idx] = pivot;
 
     idx
 }
 
-fn qs(arr: &mut [i32], lo: i32, hi: i32) {
+fn qs(arr: &mut [i32], lo: usize, hi: usize) {
     if lo >= hi {
         return;
     }
@@ -30,7 +43,7 @@ fn qs(arr: &mut [i32], lo: i32, hi: i32) {
 }
 
 pub fn quick_sort(arr: &mut [i32]) {
-    qs(arr, 0, arr.len() as i32 - 1);
+    qs(arr, 0, arr.len() - 1);
 }
 
 #[cfg(test)]
