@@ -5,8 +5,8 @@ fn partition(arr: &mut [i32], lo: usize, hi: usize) -> usize {
 
     let mut inside = false;
     for i in lo..hi {
-        dbg!(&idx);
         if arr[i] <= pivot {
+            dbg!(&idx);
             if lo == 0 {
                 if inside {
                     idx += 1;
