@@ -6,6 +6,7 @@ mod linear_search;
 mod linked_list;
 mod maze_solver;
 mod queue;
+mod quick_sort;
 mod two_crystal_balls;
 
 fn main() {
