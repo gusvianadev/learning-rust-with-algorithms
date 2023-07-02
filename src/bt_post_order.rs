@@ -1,11 +1,7 @@
-pub struct BinaryNode {
-    value: usize,
-    left: Option<Box<BinaryNode>>,
-    right: Option<Box<BinaryNode>>,
-}
+use crate::structs::BinaryNode;
 
-type Curr = Option<Box<BinaryNode>>;
-type Path = Vec<usize>;
+type Curr = Option<Box<BinaryNode<u8>>>;
+type Path = Vec<u8>;
 
 fn walk(curr: &Curr, path: &mut Path) {
     if curr.is_none() {
@@ -18,7 +14,7 @@ fn walk(curr: &Curr, path: &mut Path) {
     path.push(curr.value);
 }
 
-pub fn post_order_search(head: BinaryNode) -> Path {
+pub fn post_order_search(head: BinaryNode<u8>) -> Path {
     let mut path: Path = Vec::new();
     let head = Some(Box::new(head));
     walk(&head, &mut path);
@@ -27,51 +23,12 @@ pub fn post_order_search(head: BinaryNode) -> Path {
 
 #[cfg(test)]
 mod bt_post_order {
+    use crate::stuff::create_tree;
+
     use super::*;
     #[test]
     fn it_works() {
-        let tree = BinaryNode {
-            value: 20,
-            right: Some(Box::new(BinaryNode {
-                value: 50,
-                right: Some(Box::new(BinaryNode {
-                    value: 100,
-                    right: None,
-                    left: None,
-                })),
-                left: Some(Box::new(BinaryNode {
-                    value: 30,
-                    right: Some(Box::new(BinaryNode {
-                        value: 45,
-                        right: None,
-                        left: None,
-                    })),
-                    left: Some(Box::new(BinaryNode {
-                        value: 29,
-                        right: None,
-                        left: None,
-                    })),
-                })),
-            })),
-            left: Some(Box::new(BinaryNode {
-                value: 10,
-                right: Some(Box::new(BinaryNode {
-                    value: 15,
-                    right: None,
-                    left: None,
-                })),
-                left: Some(Box::new(BinaryNode {
-                    value: 5,
-                    right: Some(Box::new(BinaryNode {
-                        value: 7,
-                        right: None,
-                        left: None,
-                    })),
-                    left: None,
-                })),
-            })),
-        };
         let result: Path = Vec::from([7, 5, 15, 10, 29, 45, 30, 100, 50, 20]);
-        assert_eq!(post_order_search(tree), result);
+        assert_eq!(post_order_search(create_tree()), result);
     }
 }
