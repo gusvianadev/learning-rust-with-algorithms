@@ -7,6 +7,7 @@ mod bt_in_order;
 mod bt_post_order;
 mod bt_pre_order;
 mod bubble_sort;
+mod depht_first_search_on_bst;
 mod linear_search;
 mod linked_list;
 mod maze_solver;
