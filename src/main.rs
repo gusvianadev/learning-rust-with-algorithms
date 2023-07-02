@@ -1,6 +1,9 @@
 #![allow(unused)]
 
 mod binary_search;
+mod bt_in_order;
+mod bt_post_order;
+mod bt_pre_order;
 mod bubble_sort;
 mod linear_search;
 mod linked_list;
