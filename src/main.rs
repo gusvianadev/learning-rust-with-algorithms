@@ -2,6 +2,7 @@
 
 mod binary_search;
 mod bt_breadth_first_search;
+mod bt_compare;
 mod bt_in_order;
 mod bt_post_order;
 mod bt_pre_order;

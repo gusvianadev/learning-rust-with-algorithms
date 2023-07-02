@@ -1,7 +1,7 @@
 use crate::structs::BinaryNode;
 
-type Curr = Option<Box<BinaryNode<u8>>>;
-type Path = Vec<u8>;
+type Curr = Option<Box<BinaryNode<u32>>>;
+type Path = Vec<u32>;
 
 fn walk(curr: &Curr, path: &mut Path) {
     if curr.is_none() {
@@ -14,7 +14,7 @@ fn walk(curr: &Curr, path: &mut Path) {
     walk(&curr.right, path);
 }
 
-pub fn in_order_search(head: BinaryNode<u8>) -> Path {
+pub fn in_order_search(head: BinaryNode<u32>) -> Path {
     let mut path: Path = Vec::new();
     let head = Some(Box::new(head));
     walk(&head, &mut path);

@@ -1,6 +1,6 @@
 use crate::structs::BinaryNode;
 
-pub fn bt_breadth_first_search(head: BinaryNode<u8>, needle: u8) -> bool {
+pub fn bt_breadth_first_search(head: BinaryNode<u32>, needle: u32) -> bool {
     let mut queue = vec![head];
 
     while queue.len() > 0 {
