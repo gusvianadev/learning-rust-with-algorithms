@@ -11,6 +11,7 @@ mod depht_first_search_on_bst;
 mod linear_search;
 mod linked_list;
 mod maze_solver;
+mod min_heap;
 mod queue;
 mod quick_sort;
 mod structs;
