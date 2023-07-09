@@ -1,5 +1,6 @@
 #![allow(unused)]
 
+mod bfs_graph_matrix;
 mod binary_search;
 mod bt_breadth_first_search;
 mod bt_compare;
