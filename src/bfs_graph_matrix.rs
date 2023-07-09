@@ -1,5 +1,4 @@
-type Matrix = Vec<usize>;
-type WeightedAdjacencyMatrix = Vec<Matrix>;
+use crate::stuff::{Matrix, WeightedAdjacencyMatrix};
 
 fn bfs(graph: &WeightedAdjacencyMatrix, source: usize, needle: usize) -> Option<Matrix> {
     let mut seen = vec![false; graph.len()];

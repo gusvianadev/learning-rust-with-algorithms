@@ -1,15 +1,11 @@
-struct GraphEdge {
-    to: usize,
-    weight: usize,
-}
-type WeightedAdjacencyList = Vec<Vec<GraphEdge>>;
+use crate::stuff::{MatrixValue, WeightedAdjacencyList};
 
 fn walk(
     graph: &WeightedAdjacencyList,
-    curr: usize,
-    needle: usize,
+    curr: MatrixValue,
+    needle: MatrixValue,
     seen: &mut Vec<bool>,
-    path: &mut Vec<usize>,
+    path: &mut Vec<MatrixValue>,
 ) -> bool {
     if seen[curr] {
         return false;
@@ -40,9 +36,13 @@ fn walk(
     false
 }
 
-fn dfs(graph: &WeightedAdjacencyList, source: usize, needle: usize) -> Option<Vec<usize>> {
+fn dfs(
+    graph: &WeightedAdjacencyList,
+    source: MatrixValue,
+    needle: MatrixValue,
+) -> Option<Vec<MatrixValue>> {
     let mut seen = vec![false; graph.len()];
-    let mut path: Vec<usize> = vec![];
+    let mut path: Vec<MatrixValue> = vec![];
 
     walk(graph, source, needle, &mut seen, &mut path);
 
@@ -55,6 +55,8 @@ fn dfs(graph: &WeightedAdjacencyList, source: usize, needle: usize) -> Option<Ve
 
 #[cfg(test)]
 mod test_dfs_graph_list {
+    use crate::stuff::GraphEdge;
+
     use super::*;
 
     #[test]

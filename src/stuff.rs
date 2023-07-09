@@ -91,3 +91,12 @@ pub fn create_tree_2() -> BinaryNode<u32> {
         })),
     }
 }
+
+pub struct GraphEdge {
+    pub to: usize,
+    pub weight: usize,
+}
+pub type WeightedAdjacencyList = Vec<Vec<GraphEdge>>;
+pub type MatrixValue = usize;
+pub type Matrix = Vec<MatrixValue>;
+pub type WeightedAdjacencyMatrix = Vec<Matrix>;

@@ -10,6 +10,7 @@ mod bt_pre_order;
 mod bubble_sort;
 mod depht_first_search_on_bst;
 mod dfs_graph_list;
+mod dijkstra_list;
 mod linear_search;
 mod linked_list;
 mod maze_solver;
